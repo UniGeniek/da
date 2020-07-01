@@ -102,28 +102,6 @@ let db = JSON.parse(fs.readFileSync('./database.json', "utf8"));
 // Авторизация и установка статуса
 bot.on("ready", function () {
 	console.log("[BOT] Вошёл на " + bot.guilds.array().length + " сервер!");
-	
-	// Режим стримера
-    //client.user.setGame('Test', 'https://twitch.tv/dfggdfhdf')
-    //client.user.setActivity('на тебя!', {type: `WATCHING`})
-	
-	setInterval(function() {
-
-        let statuss = statuslist[Math.floor(Math.random()*statuslist.length)]
-        bot.user.setGame(statuss + "|Сервер: " + bot.guilds.array().length)
-
-        //let listavatars = listavatar[Math.floor(Math.random()*listavatar.length)] // Смена аватаров (Пофикшенно дискордом)
-        //console.log(listavatars)
-        //bot.user.setAvatar(listavatars)
-
-
-        let onlines = onlinelist[Math.floor(Math.random()*onlinelist.length)]
-        bot.user.setStatus(onlines)
-    
-    }, 10000)
-});
-
-
 
 
 
